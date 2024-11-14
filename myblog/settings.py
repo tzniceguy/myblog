@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'tzniceguy.vercel.app',
+    'tzniceguyblog.deploy.tz',
+
 ]
 
 
@@ -144,9 +146,6 @@ REST_FRAMEWORK = {
     ]
 }
 """
-
-CORS_ALLOW_ALL_ORIGINS = True
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
