@@ -147,9 +147,4 @@ REST_FRAMEWORK = {
 }
 """
 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://tzniceguyblog.deploy.tz",
-    "http://tzniceguy.vercel.app",
-]
+CORS_ALLOWED_ALL_ORIGINS = True
