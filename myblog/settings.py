@@ -151,6 +151,11 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'https://tzniceguy.vercel.app',
     'http://tzniceguy.vercel.app',
-    'localhost:3000',
-    '127.0.0.1:3000,'
+    'http://localhost:3000',
+    'http://127.0.0.1:3000,'
 ]
+
+SECURE_HSTS_SECONDS = 3600
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
