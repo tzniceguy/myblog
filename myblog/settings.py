@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6@(h!e%5!ep74fetn($dn4z!qsita3rtisu8vg=y26*_pljhq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '*.deploy.tz',
     'localhost',
     '127.0.0.1',
     'tzniceguy.vercel.app',
@@ -131,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
@@ -143,13 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #django rest framework settings
-"""
 REST_FRAMEWORK = {
     'DEFAULT_PERMISION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
 }
-"""
 
 CORS_ALLOWED_ORIGINS = [
     'https://tzniceguy.vercel.app',
