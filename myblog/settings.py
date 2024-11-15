@@ -129,11 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-# The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
-
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/ 'static'
+STATICFILES_DIRS = [BASE_DIR/'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -153,9 +151,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://tzniceguy.vercel.app',
     'http://localhost:3000',
     'http://127.0.0.1:3000,'
+    '*vercel.app'
 ]
 
-SECURE_HSTS_SECONDS = 3600
-SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
