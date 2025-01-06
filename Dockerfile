@@ -1,25 +1,31 @@
-FROM python:3.9-slim
+FROM python:3-slim
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE myblog.settings
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DJANGO_SETTINGS_MODULE=myblog.settings \
+    PATH="/home/app/.local/bin:$PATH"
 
 # Set work directory
 WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    curl \
     gcc \
+    python3-dev \
+    libffi-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Create and switch to non-root user
-RUN adduser --disabled-password --no-create-home app
+RUN useradd --create-home app \
+    && chown -R app:app /app
+
 USER app
 
 # Install Python dependencies
 COPY --chown=app:app requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Copy project
 COPY --chown=app:app . .

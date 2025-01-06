@@ -14,7 +14,7 @@ services:
       - 8000
     environment:
       - DEBUG=0
-      - DJANGO_ALLOWED_HOSTS=your-domain.com,www.your-domain.com
+      - DJANGO_ALLOWED_HOSTS=joeshimbi.tech,www.joeshimbi.tech
       - SECRET_KEY=${DJANGO_SECRET_KEY}
       - DJANGO_SETTINGS_MODULE=myblog.settings
     healthcheck:
